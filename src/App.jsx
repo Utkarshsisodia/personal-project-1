@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import GridLoader from "react-spinners/GridLoader";
 
 // Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import PageTransition from "./components/PageTransition";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     // 1. Wait for 2 seconds of "loading"
@@ -49,11 +53,13 @@ function App() {
           isFadingOut ? "opacity-100" : "opacity-0"
         }`}
       >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+        <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
+          <Route path="/signup" element={<PageTransition><Signup /></PageTransition>} />
         </Routes>
+        </AnimatePresence>
       </div>
     </>
   );

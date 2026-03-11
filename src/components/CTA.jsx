@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function CTA() {
   return (
-    <section className="py-24 mb-10 pb-40 bg-background">
+    <section className="py-24  bg-background">
       <div className="container mx-auto px-4 md:px-8">
         
         {/* Clean, standard card container matching your Bento grid */}
