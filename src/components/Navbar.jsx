@@ -24,10 +24,12 @@ export default function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         
         {/* Brand Logo */}
+        <Link to='/'>
         <div className="flex items-center gap-2">
           <Rocket className="h-6 w-6 text-primary" />
           <span className="text-xl font-bold tracking-tight">ModernApp</span>
         </div>
+        </Link>
 
         {/* Desktop Navigation Menu */}
         <div className="hidden md:flex flex-1 justify-center">

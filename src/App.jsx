@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import PageTransition from "./components/PageTransition";
 import { AnimatePresence } from "framer-motion";
+import BlogPage from "./pages/BlogPage";
+import BlogPost from "./pages/BlogPost";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,6 +60,8 @@ function App() {
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
           <Route path="/signup" element={<PageTransition><Signup /></PageTransition>} />
+          <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
+          <Route path="/blog/:id" element={<PageTransition><BlogPost /></PageTransition>} />
         </Routes>
         </AnimatePresence>
       </div>
