@@ -45,7 +45,6 @@ export default function Blog() {
   return (
     <section className="py-24 mb-10 pb-40 bg-background">
       <div className="container mx-auto px-4 md:px-8">
-        {/* Top Section: Split Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-4 bg-muted/50">
@@ -59,7 +58,7 @@ export default function Blog() {
               our engineering and design teams.
             </p>
           </div>
-          {/* Desktop Button */}
+
           <Link to="/blog">
             <Button className="hidden md:flex gap-2" aschild>
               View all posts <ArrowRight className="h-4 w-4" />
@@ -67,14 +66,12 @@ export default function Blog() {
           </Link>
         </div>
 
-        {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <Card
               key={post.id}
               className="group overflow-hidden border-muted bg-transparent hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              {/* Image Container with Hover Zoom */}
               <div className="relative h-56 overflow-hidden">
                 <img
                   src={post.image}
@@ -86,16 +83,13 @@ export default function Blog() {
                 </Badge>
               </div>
 
-              {/* Card Content */}
               <CardContent className="p-6 flex flex-col flex-1">
-                {/* Metadata */}
                 <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3 font-medium">
                   <span>{post.date}</span>
                   <span>•</span>
                   <span>{post.readTime}</span>
                 </div>
 
-                {/* Title & Summary */}
                 <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {post.title}
                 </h3>
@@ -103,7 +97,6 @@ export default function Blog() {
                   {post.summary}
                 </p>
 
-                {/* Footer Link */}
                 <Link
                   to={`/blog/${post.id}`}
                   className="inline-flex items-center font-medium text-sm text-primary mt-auto group/link"
@@ -116,7 +109,6 @@ export default function Blog() {
           ))}
         </div>
 
-        {/* Mobile View All Button (Hidden on Desktop) */}
         <Link to="/blog">
           <Button
             variant="outline"
